@@ -1,0 +1,23 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model RezultatVM
+
+
+<div class="container">
+    @if (Model.prikaz == true)
+    {
+    <form asp-controller="Izbori" asp-action="Prikaz" asp-route-gradID="@Model.GradID">
+        <select asp-for="@Model.GradID" asp-items="@Model.gradovi"></select>
+        <button>Prikazi rezultate</button>
+    </form>
+    }
+            else
+            {
+                <h2>Trenutno nema rezultata .</h2>
+            }
+    <hr />
+</div>
+<a class="btn btn-primary" asp-controller="Izbori" asp-action="Index">Dodaj nove rezultate</a>

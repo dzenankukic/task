@@ -1,0 +1,38 @@
+﻿@model RezultatiPrikazVM
+@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+<div class="container">
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th>Kandidat</th>
+                <th>Glasovi</th>
+                <th>Procenat</th>
+                <th>Error</th>
+            </tr>
+        </thead>
+        @foreach (var rez in Model.Rezultati)
+        {
+            <tbody>
+                <tr>
+                    <td>@rez.Kandidat.ImeKandidata</td>
+                    @if (rez.isGreska == true && rez.BrojGlasova == 0)
+                    {
+                        <td>N/A</td>
+                        <td>N/A</td>
+                        <td>Yes</td>
+                    }
+                    else
+                    {
+                        <td>@rez.BrojGlasova</td>
+                        <td>@rez.Procenat %</td>
+                        <td>-</td>
+                    }
+
+                </tr>
+            </tbody>
+        }
+    </table>
+    <a class="btn btn-primary" asp-controller="Izbori" asp-action="Rezultat">Pogledaj ostale rezultate</a>
+</div>
