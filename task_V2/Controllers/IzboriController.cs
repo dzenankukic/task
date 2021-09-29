@@ -138,7 +138,7 @@ namespace task_V2.Controllers
                     Gradovi novigrad = new Gradovi();
                     //provjerit dal je string na rezultat[0]                            !!!!!!!!!!!!!!
                     bool gradstring = Int32.TryParse(rezultat[0], out int siti);
-                    if (gradstring == true)
+                    if (gradstring == true || rezultat[0] == "")
                     {
                         _logger.LogWarning("Format je pogrešan.Na prvom mjestu nije grad!");
                         continue;
